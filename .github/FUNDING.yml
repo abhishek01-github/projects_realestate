@@ -1,15 +1,21 @@
 github: abhishek01-github
 ---
+---
 execution:
   scenario:
-    script: my_test_script.jmx
+    script: path/to/your/jmeter/testplan.jmx
   concurrency: 10
-  ramp-up: 5m
-  hold-for: 10m
+  ramp-up: 1m
+  hold-for: 5m
   iterations: 100
+
+reporting:
+  - module: final-stats
+    summary: true
+    percentiles: [50, 95, 99]
+  - module: junit-xml
 
 modules:
   jmeter:
     properties:
-      log_level.jmeter: DEBUG
-
+      log_level.jmeter: INFO
