@@ -1,13 +1,15 @@
 github: abhishek01-github
 ---
 execution:
-- concurrency: 10
-  ramp-up: 1m
-  hold-for: 5m
-  scenario: my_test_scenario
+  scenario:
+    script: my_test_script.jmx
+  concurrency: 10
+  ramp-up: 5m
+  hold-for: 10m
+  iterations: 100
 
-scenarios:
-  my_test_scenario:
-    requests:
-    - url: https://example.com
-      method: GET
+modules:
+  jmeter:
+    properties:
+      log_level.jmeter: DEBUG
+
